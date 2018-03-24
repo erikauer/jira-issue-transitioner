@@ -1,6 +1,6 @@
-# JIRA Issue Closer
+# JIRA Issue Transitioner
 
-A JIRA issue closer written in groovy that closes all issues found by a specified JQL.
+A JIRA issue transitioner written in groovy that closes all issues found by a specified JQL.
 
 ## Getting Started
 
