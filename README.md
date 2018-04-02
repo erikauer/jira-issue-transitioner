@@ -1,4 +1,7 @@
-# JIRA Issue Transitioner [![Build Status](https://travis-ci.org/erikauer/jira-issue-transitioner.svg?branch=master)](https://travis-ci.org/erikauer/jira-issue-transitioner)
+[![License](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/erikauer/jira-issue-transitioner/blob/master/LICENSE.md)
+[![Build Status](https://travis-ci.org/erikauer/jira-issue-transitioner.svg?branch=master)](https://travis-ci.org/erikauer/jira-issue-transitioner)
+
+# JIRA Issue Transitioner 
 
 A JIRA issue transitioner written in groovy that closes all issues found by a specified JQL.
 
