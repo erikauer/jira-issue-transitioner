@@ -1,8 +1,16 @@
 package com.erik.jiraissuetransitioner
 
-class JiraRequestHandlerTest extends GroovyTestCase {
-    void testGetIssuesByJQL() {
-        def x = 1
-        assert x == 1
+import spock.lang.Specification
+
+class JiraRequestHandlerTest extends Specification {
+    def "length of Spock's and his friends' names"() {
+        expect:
+        name.size() == length
+
+        where:
+        name     | length
+        "Spock"  | 5
+        "Kirk"   | 4
+        "Scotty" | 6
     }
 }
