@@ -15,7 +15,11 @@ TODO
 
 ## Running the tests
 
-TODO
+Run
+
+    ./gradlew test
+    
+from the root directory.
 
 ## Deployment
 
