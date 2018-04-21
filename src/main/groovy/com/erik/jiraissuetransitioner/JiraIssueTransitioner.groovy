@@ -1,4 +1,6 @@
-import com.erik.jiraissuetransitioner.JiraRequestHandler
+package com.erik.jiraissuetransitioner
+
+import com.erik.jiraissuetransitioner.jira.JiraRequestHandler
 
 class JiraIssueTransitioner {
     void hello() {
