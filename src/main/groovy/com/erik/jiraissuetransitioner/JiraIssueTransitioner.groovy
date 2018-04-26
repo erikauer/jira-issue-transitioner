@@ -17,5 +17,6 @@ class JiraIssueTransitioner {
 
         def jqlConfig = new ConfigSlurper('development').parse(configScript)
         println JiraRequestHandler.getIssuesByJQL(jqlConfig.jira.issue.jql)
+        println JiraRequestHandler.makeTransitionByIssueId("DEVOPS-123")
     }
 }
