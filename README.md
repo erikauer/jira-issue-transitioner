@@ -23,7 +23,9 @@ from the root directory.
 
 ## Deployment
 
-TODO
+To deploy the JIRA Issue Transitioner successful you need to set the JIRA URL through the environment variable
+
+     JIRAISSUETRANSITIONER_URL
 
 ## Built With
 
