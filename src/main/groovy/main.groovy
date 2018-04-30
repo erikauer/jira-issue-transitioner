@@ -1,4 +1,4 @@
-package com.erik.jiraissuetransitioner
+import com.erik.jiraissuetransitioner.JiraIssueTransitioner
 
 app = new JiraIssueTransitioner();
-app.hello()
+app.run("?","61")

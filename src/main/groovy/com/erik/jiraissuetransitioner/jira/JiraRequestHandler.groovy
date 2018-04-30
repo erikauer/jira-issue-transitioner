@@ -8,10 +8,15 @@ class JiraRequestHandler {
 
     static def getIssuesByJQL(jqlQuery) {
         String jiraUrl = System.getenv()['JIRAISSUETRANSITIONER_URL']
-        return JsonRestHandler.get(jiraUrl + "/rest/api/2/search")
+        Object json = JsonRestHandler.get(jiraUrl + "/rest/api/2/search")
+        def issues = null;
+        json.issues.each {
+            issues = it.key
+        }
+        return issues
     }
 
-    static def makeTransitionByIssueId(issueId) {
+    static def makeTransitionByIssueId(issueId, transitionId) {
 
         String jiraUrl = System.getenv()['JIRAISSUETRANSITIONER_URL']
         JsonBuilder comments = new JsonBuilder()
@@ -27,11 +32,11 @@ class JiraRequestHandler {
                 comment ([comments.content])
             }
             transition {
-                id '61'
+                id "${transitionId}"
             }
         }
 
         String postJson = JsonOutput.prettyPrint(json.toString())
-        return JsonRestHandler.post(jiraUrl + "rest/api/2/issue/" + issueId + "/transitions", postJson)
+        return JsonRestHandler.post(jiraUrl + "/rest/api/2/issue/" + issueId + "/transitions", postJson)
     }
 }

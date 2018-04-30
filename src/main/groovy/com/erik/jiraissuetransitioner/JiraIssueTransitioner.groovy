@@ -3,20 +3,10 @@ package com.erik.jiraissuetransitioner
 import com.erik.jiraissuetransitioner.jira.JiraRequestHandler
 
 class JiraIssueTransitioner {
-    void hello() {
-        def configScript = '''
-        environments {
-            development {
-                jira.issue.jql = ''
-            }
-            production {
-                jira.issue.jql = 'jql-prod'
-            }
+    void run(String jql, String transitionId) {
+        def issues = JiraRequestHandler.getIssuesByJQL(jql)
+        issues.each { issue ->
+            JiraRequestHandler.makeTransitionByIssueId(issue, transitionId)
         }
-        '''
-
-        def jqlConfig = new ConfigSlurper('development').parse(configScript)
-        println JiraRequestHandler.getIssuesByJQL(jqlConfig.jira.issue.jql)
-        println JiraRequestHandler.makeTransitionByIssueId("DEVOPS-123")
     }
 }
