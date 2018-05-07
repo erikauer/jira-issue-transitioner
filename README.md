@@ -36,7 +36,7 @@ the repository and run
 
 ## Contributing
 
-Please read CONTRIBUTING.md (TODO)
+Please read [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Authors
 
