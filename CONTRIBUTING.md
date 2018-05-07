@@ -7,7 +7,7 @@ to contribute to the sources.
 * [Contribution Guidelines](#guide)
 
 ## <a name="coc"></a> Code of Conduct
-Just be fair and respect everyone. We all here to improve the IT world.
+Just be fair and respect everyone. We are all here to improve the IT world.
 
 ## <a name="guide"></a> Contribution Guidelines
 
