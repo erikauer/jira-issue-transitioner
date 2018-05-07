@@ -7,11 +7,11 @@ A JIRA issue transitioner written in groovy that closes all issues found by a sp
 
 ## Getting Started
 
-TODO
+Steps
 
-### Prerequisites
-
-TODO
+* clone the repository
+* build the project with ./gradlew build
+* TODO
 
 ## Running the tests
 
@@ -29,7 +29,10 @@ To deploy the JIRA Issue Transitioner successful you need to set the JIRA URL th
 
 ## Built With
 
-TODO
+We use gradle to build the project. As in this project the gradle wrapper is used you just need to download
+the repository and run 
+
+     ./gradlew build
 
 ## Contributing
 
