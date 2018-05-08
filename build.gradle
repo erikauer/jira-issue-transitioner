@@ -1,19 +1,16 @@
-group 'main.java.com.erik.jiraissuetransitioner'
-version '1.0-SNAPSHOT'
+group 'com.erik.jiraissuetransitioner'
+version '1.0.0-SNAPSHOT'
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-}
-
+apply plugin: 'application'
 apply plugin: 'groovy'
 apply plugin: 'java'
 
 sourceCompatibility = 1.8
 
 repositories {
-    mavenCentral()
+    repositories {
+        mavenCentral()
+    }
 }
 
 dependencies {
@@ -24,3 +21,5 @@ dependencies {
             'org.spockframework:spock-core:1.1-groovy-2.4'
     )
 }
+
+mainClassName = 'com.erik.jiraissuetransitioner.JiraIssueTransitioner'

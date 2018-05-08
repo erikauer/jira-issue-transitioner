@@ -11,7 +11,8 @@ Steps
 
 * clone the repository
 * build the project with ./gradlew build
-* TODO
+* Configure JIRAISSUETRANSITIONER_URL
+* Run the project with ./gradle run
 
 ## Running the tests
 
