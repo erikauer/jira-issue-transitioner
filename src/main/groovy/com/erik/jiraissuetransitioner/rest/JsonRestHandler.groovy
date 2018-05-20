@@ -1,11 +1,11 @@
 package com.erik.jiraissuetransitioner.rest
 
 import groovy.json.JsonSlurper
+import javax.xml.ws.http.HTTPException
 
 class JsonRestHandler {
 
-    static def get(url) {
-        def connection = new URL(url).openConnection() as HttpURLConnection
+    static def get(connection) {
         connection.setRequestProperty('Accept', 'application/json')
         if (connection.responseCode == 200) {
             def json = connection.inputStream.withCloseable { inStream ->
@@ -14,12 +14,12 @@ class JsonRestHandler {
             return json
         } else {
             println connection.responseCode + ": " + connection.inputStream.text
+            throw new HTTPException(connection.responseCode);
         }
     }
 
-    static def post(url, body) {
+    static def post(connection, body) {
         println body
-        def connection = new URL(url).openConnection() as HttpURLConnection
         connection.setRequestProperty('Accept', 'application/json')
         connection.setRequestProperty('Content-Type', 'application/json')
 
@@ -34,6 +34,7 @@ class JsonRestHandler {
             return new JsonSlurper().parseText('{}')
         } else {
             println connection.responseCode + ": " + connection.inputStream.text
+            throw new HTTPException(connection.responseCode);
         }
     }
 }

@@ -8,7 +8,8 @@ class JiraRequestHandler {
 
     static def getIssuesByJQL(jqlQuery) {
         String jiraUrl = System.getenv()['JIRAISSUETRANSITIONER_URL']
-        Object json = JsonRestHandler.get(jiraUrl + "/rest/api/2/search")
+        def connection = new URL(jiraUrl + "/rest/api/2/search").openConnection() as HttpURLConnection
+        Object json = JsonRestHandler.get(connection)
         def issues = null;
         json.issues.each {
             issues = it.key
@@ -37,6 +38,7 @@ class JiraRequestHandler {
         }
 
         String postJson = JsonOutput.prettyPrint(json.toString())
-        return JsonRestHandler.post(jiraUrl + "/rest/api/2/issue/" + issueId + "/transitions", postJson)
+        def connection = new URL(jiraUrl + "/rest/api/2/issue/" + issueId + "/transitions").openConnection() as HttpURLConnection
+        return JsonRestHandler.post(connection, postJson)
     }
 }
