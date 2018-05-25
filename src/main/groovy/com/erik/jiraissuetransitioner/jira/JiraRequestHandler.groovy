@@ -6,10 +6,14 @@ import groovy.json.JsonOutput
 
 class JiraRequestHandler {
 
-    static def getIssuesByJQL(jqlQuery) {
-        String jiraUrl = System.getenv()['JIRAISSUETRANSITIONER_URL']
-        def connection = new URL(jiraUrl + "/rest/api/2/search").openConnection() as HttpURLConnection
-        Object json = JsonRestHandler.get(connection)
+    JsonRestHandler jsonRestHandler;
+
+    JiraRequestHandler(JsonRestHandler jsonRestHandler) {
+        this.jsonRestHandler = jsonRestHandler
+    }
+
+    def getIssuesByJQL(connection) {
+        Object json = jsonRestHandler.get(connection)
         def issues = null;
         json.issues.each {
             issues = it.key
@@ -17,9 +21,8 @@ class JiraRequestHandler {
         return issues
     }
 
-    static def makeTransitionByIssueId(issueId, transitionId) {
+    def makeTransitionByIssueId(connection, transitionId) {
 
-        String jiraUrl = System.getenv()['JIRAISSUETRANSITIONER_URL']
         JsonBuilder comments = new JsonBuilder()
         JsonBuilder json = new JsonBuilder()
 
@@ -38,7 +41,6 @@ class JiraRequestHandler {
         }
 
         String postJson = JsonOutput.prettyPrint(json.toString())
-        def connection = new URL(jiraUrl + "/rest/api/2/issue/" + issueId + "/transitions").openConnection() as HttpURLConnection
-        return JsonRestHandler.post(connection, postJson)
+        return jsonRestHandler.post(connection, postJson)
     }
 }

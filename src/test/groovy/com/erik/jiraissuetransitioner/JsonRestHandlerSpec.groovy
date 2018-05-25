@@ -54,4 +54,52 @@ class JsonRestHandlerSpec extends Specification {
         HTTPException exception = thrown();
         exception.getStatusCode() == 404
     }
+
+    def "post request"() {
+        setup: "create mocked connection"
+        def urlConnection = Mock(HttpURLConnection)
+
+        and: "create expected response mock"
+        def jsonSlurper = new JsonSlurper()
+        def jsonMock = jsonSlurper.parseText('{}')
+
+        and: "mock body"
+        def bodyMock = jsonSlurper.parseText('{ \"test\": \"test\" }')
+
+        and: "stub response code 204"
+        urlConnection.responseCode >> 204
+        urlConnection.outputStream >> new ByteArrayOutputStream()
+
+        when: "call get request"
+        def response = JsonRestHandler.post(urlConnection, bodyMock);
+
+        then: "headers are set"
+        1 * urlConnection.setRequestProperty('Accept', 'application/json')
+        1 * urlConnection.setRequestProperty('Content-Type', 'application/json')
+
+        and: "json response is correct"
+        response == jsonMock
+    }
+
+    def "post request throw error for http status unequal 204"() {
+        setup: "create mocked connection"
+        def urlConnection = Mock(HttpURLConnection)
+
+        and: "create expected response mock"
+        def jsonSlurper = new JsonSlurper()
+
+        and: "mock body"
+        def bodyMock = jsonSlurper.parseText('{ \"test\": \"test\" }')
+
+        and: "stub response code 200"
+        urlConnection.responseCode >> 200
+        urlConnection.outputStream >> new ByteArrayOutputStream()
+
+        when: "call get request"
+        JsonRestHandler.post(urlConnection, bodyMock);
+
+        then: "error is thrown"
+        HTTPException exception = thrown();
+        exception.getStatusCode() == 200
+    }
 }

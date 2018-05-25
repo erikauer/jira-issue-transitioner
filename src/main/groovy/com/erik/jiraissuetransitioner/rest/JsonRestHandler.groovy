@@ -19,7 +19,6 @@ class JsonRestHandler {
     }
 
     static def post(connection, body) {
-        println body
         connection.setRequestProperty('Accept', 'application/json')
         connection.setRequestProperty('Content-Type', 'application/json')
 
@@ -33,7 +32,7 @@ class JsonRestHandler {
         if (connection.responseCode == 204) {
             return new JsonSlurper().parseText('{}')
         } else {
-            println connection.responseCode + ": " + connection.inputStream.text
+            println "Error. Status Code 204 was expected. Got " + connection.responseCode + " instead."
             throw new HTTPException(connection.responseCode);
         }
     }
