@@ -1,9 +1,21 @@
-group 'com.erik.jiraissuetransitioner'
-version '1.0.0-SNAPSHOT'
+buildscript {
+    repositories { jcenter() }
+    dependencies {
+        classpath 'net.saliman:gradle-cobertura-plugin:2.2.2'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.3.1'
+    }
+}
 
+apply plugin: 'cobertura'
+apply plugin: 'coveralls'
 apply plugin: 'application'
 apply plugin: 'groovy'
 apply plugin: 'java'
+
+cobertura.coverageFormats = ['html', 'xml']
+
+group 'com.erik.jiraissuetransitioner'
+version '1.0.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
