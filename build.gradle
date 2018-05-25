@@ -13,6 +13,7 @@ apply plugin: 'groovy'
 apply plugin: 'java'
 
 cobertura.coverageFormats = ['html', 'xml']
+cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
 
 group 'com.erik.jiraissuetransitioner'
 version '1.0.0-SNAPSHOT'
