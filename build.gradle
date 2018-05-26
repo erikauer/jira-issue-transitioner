@@ -1,16 +1,16 @@
 buildscript {
     repositories { jcenter() }
     dependencies {
-        classpath 'net.saliman:gradle-cobertura-plugin:2.2.2'
+        classpath 'net.saliman:gradle-cobertura-plugin:2.5.4'
         classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.3.1'
     }
 }
 
-apply plugin: 'cobertura'
-apply plugin: 'coveralls'
 apply plugin: 'application'
 apply plugin: 'groovy'
 apply plugin: 'java'
+apply plugin: 'cobertura'
+apply plugin: 'coveralls'
 
 cobertura.coverageFormats = ['html', 'xml']
 cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
@@ -35,8 +35,8 @@ dependencies {
             'cglib:cglib-nodep:3.2.0',
             'org.objenesis:objenesis:2.6',
             'net.bytebuddy:byte-buddy:1.8.11'
-
     )
+    testRuntime "org.slf4j:slf4j-api:1.7.10" // To avoid ClassNotFoundException issue (https://github.com/stevesaliman/gradle-cobertura-plugin/blob/master/usage.md)
 }
 
 mainClassName = 'com.erik.jiraissuetransitioner.JiraIssueTransitioner'
