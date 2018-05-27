@@ -12,7 +12,7 @@ Steps
 
 * clone the repository
 * build the project with ./gradlew build
-* Configure JIRAISSUETRANSITIONER_URL
+* Setup the environment (Shown in detail below in deployment section)
 * Run the project with ./gradle run
 
 ## Running the tests
@@ -28,6 +28,13 @@ from the root directory.
 To deploy the JIRA Issue Transitioner successful you need to set the JIRA URL through the environment variable
 
      JIRAISSUETRANSITIONER_URL
+     
+ You also need to set values for the jql (JIRAISSUETRANSITIONER_JQL) and the transitionId 
+ (JIRAISSUETRANSITIONER_TRANSITION) for a successful run of this program. An configuration example:
+ 
+     export JIRAISSUETRANSITIONER_URL=http://private-58204-jiraissuetransitionertestmock.apiary-mock.com
+     export JIRAISSUETRANSITIONER_JQL="?jql=project%3Ddevops%20and%20status%3Dabnahmebereit%20and%20updated<%3D-14d"
+     export JIRAISSUETRANSITIONER_TRANSITION=22
 
 ## Built With
 

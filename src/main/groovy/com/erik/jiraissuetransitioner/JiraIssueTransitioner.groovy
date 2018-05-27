@@ -6,10 +6,13 @@ import com.erik.jiraissuetransitioner.rest.JsonRestHandler
 
 class JiraIssueTransitioner {
     static void main(String[] args) {
-        def jql = "?jql=project%3Ddevops%20and%20status%3Dabnahmebereit%20and%20updated<%3D-14d"
-        def transitionId = "61"
+        def jql = EnvironmentVariables.getJiraIssueTransitionerJql()
+        def transitionId = EnvironmentVariables.getJiraIssueTransitionerTransition();
         def jiraRequestHandler = new JiraRequestHandler(new JsonRestHandler())
-        def jiraUrl = new EnvironmentVariables().getJiraIssueTransitionerUrl();
+        def jiraUrl = EnvironmentVariables.getJiraIssueTransitionerUrl();
+        println jql
+        println transitionId
+        println jiraUrl
         def issues = jiraRequestHandler.getIssuesByJQL(new URL(jiraUrl + "/rest/api/2/search" + jql).openConnection() as HttpURLConnection)
         issues.each { issue ->
             jiraRequestHandler.makeTransitionByIssueId(new URL(jiraUrl + "/rest/api/2/issue/" + issue + "/transitions").openConnection() as HttpURLConnection, transitionId)
