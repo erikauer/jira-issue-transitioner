@@ -33,7 +33,6 @@ dependencies {
     testCompile(
             'junit:junit:4.12',
             'org.spockframework:spock-core:1.1-groovy-2.4',
-            'com.github.groovy-wslite:groovy-wslite:1.1.0',
             'cglib:cglib-nodep:3.2.0',
             'org.objenesis:objenesis:2.6',
             'net.bytebuddy:byte-buddy:1.8.11'
