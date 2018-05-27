@@ -13,6 +13,7 @@ class JiraIssueTransitioner {
         def jiraUrl = EnvironmentVariables.getJiraIssueTransitionerUrl();
         def dryRun = EnvironmentVariables.getJiraIssueTransitionerDryRun()
         def jiraRequestHandler = new JiraRequestHandler(new JsonRestHandler())
+        log.info("DryRun activated! Run unset JIRAISSUETRANSITIONER_DRYRUN to disable dryrun again!")
         def issues = jiraRequestHandler.getIssuesByJQL(new URL(jiraUrl + "/rest/api/2/search" + jql).openConnection() as HttpURLConnection)
         issues.each { issue ->
             if (dryRun){
