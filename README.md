@@ -35,6 +35,9 @@ To deploy the JIRA Issue Transitioner successful you need to set the JIRA URL th
      export JIRAISSUETRANSITIONER_URL=http://private-58204-jiraissuetransitionertestmock.apiary-mock.com
      export JIRAISSUETRANSITIONER_JQL="?jql=project%3Ddevops%20and%20status%3Dabnahmebereit%20and%20updated<%3D-14d"
      export JIRAISSUETRANSITIONER_TRANSITION=22
+     
+You can set JIRAISSUETRANSITIONER_DRYRUN to true, if you want to test a transition. This configuration is
+convenient if you want to initial configure the issuetransitioner in your environment.
 
 ## Built With
 

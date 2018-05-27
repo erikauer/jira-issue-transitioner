@@ -10,4 +10,7 @@ class EnvironmentVariables {
     static String getJiraIssueTransitionerTransition() {
         return System.getenv()['JIRAISSUETRANSITIONER_TRANSITION'];
     }
+    static boolean getJiraIssueTransitionerDryRun() {
+        return System.getenv()['JIRAISSUETRANSITIONER_DRYRUN'] ?: false;
+    }
 }
