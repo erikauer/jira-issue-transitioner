@@ -27,10 +27,9 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    compile 'org.codehaus.groovy:groovy-all:2.4.15'
     testCompile(
             'junit:junit:4.12',
-            'org.codehaus.groovy:groovy-all:2.3.11',
             'org.spockframework:spock-core:1.1-groovy-2.4',
             'com.github.groovy-wslite:groovy-wslite:1.1.0',
             'cglib:cglib-nodep:3.2.0',
