@@ -13,7 +13,7 @@ class EnvironmentVariablesSpec extends Specification {
         System.getenv() >> [JIRAISSUETRANSITIONER_URL: jiraUrlMock]
 
         when: "call getJiraIssueTransitionerUrl"
-        def response = environmentVariables.getJiraIssueTransitionerUrl()
+        def response = EnvironmentVariables.getJiraIssueTransitionerUrl()
 
         then: "should match jiraUrlMock"
         response == jiraUrlMock
