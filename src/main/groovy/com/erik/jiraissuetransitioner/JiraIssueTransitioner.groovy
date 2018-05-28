@@ -9,9 +9,10 @@ import groovy.util.logging.Log
 class JiraIssueTransitioner {
     static void main(String[] args) {
         def jql = EnvironmentVariables.getJiraIssueTransitionerJql()
-        def transitionId = EnvironmentVariables.getJiraIssueTransitionerTransition();
-        def jiraUrl = EnvironmentVariables.getJiraIssueTransitionerUrl();
+        def transitionId = EnvironmentVariables.getJiraIssueTransitionerTransition()
+        def jiraUrl = EnvironmentVariables.getJiraIssueTransitionerUrl()
         def dryRun = EnvironmentVariables.getJiraIssueTransitionerDryRun()
+
         def jiraRequestHandler = new JiraRequestHandler(new JsonRestHandler())
         def issues = jiraRequestHandler.getIssuesByJQL(new URL(jiraUrl + "/rest/api/2/search" + jql).openConnection() as HttpURLConnection)
         if(dryRun){
