@@ -63,4 +63,19 @@ class EnvironmentVariablesSpec extends Specification {
         then: "should match jiraDryRunMock"
         response == jiraDryRunMock
     }
+
+    def "call getJiraIssueTransitionerDryRun with JIRAISSUETRANSITIONER_DRYRUN not set"() {
+        setup: "Mock System class"
+        GroovyMock(System, global: true)
+        def jiraDryRunMock = false
+
+        and: "Stub system getenv call for JIRAISSUETRANSITIONER_DRYRUN"
+        System.getenv() >> [JIRAISSUETRANSITIONER_DRYRUN: null]
+
+        when: "call getJiraIssueTransitionerDryRun"
+        def response = EnvironmentVariables.getJiraIssueTransitionerDryRun()
+
+        then: "should match jiraDryRunMock"
+        response == jiraDryRunMock
+    }
 }
