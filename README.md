@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/erikauer/jira-issue-transitioner/blob/master/LICENSE.md)
 [![Build Status](https://travis-ci.org/erikauer/jira-issue-transitioner.svg?branch=master)](https://travis-ci.org/erikauer/jira-issue-transitioner)
-[![Coverage Status](https://coveralls.io/repos/github/erikauer/jira-issue-transitioner/badge.svg?branch=master)](https://coveralls.io/github/erikauer/jira-issue-transitioner?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/erikauer/jira-issue-transitioner/badge.svg?branch=master&service=github)](https://coveralls.io/github/erikauer/jira-issue-transitioner?branch=master)
 
 # JIRA Issue Transitioner 
 
