@@ -1,9 +1,5 @@
 buildscript {
     repositories { jcenter() }
-    dependencies {
-        classpath 'net.saliman:gradle-cobertura-plugin:2.5.4'
-        classpath "org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.8.2"
-    }
 }
 
 plugins {
