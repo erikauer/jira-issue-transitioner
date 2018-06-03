@@ -37,9 +37,9 @@ To deploy the JIRA Issue Transitioner successful you need to set the JIRA URL th
      export JIRAISSUETRANSITIONER_TRANSITION=22
      
 You can set JIRAISSUETRANSITIONER_DRYRUN to true, if you want to test a transition. This configuration is
-convenient if you want to initial configure the issuetransitioner in your environment.
+convenient if you want to initially configure the issue transitioner for your environment.
 
-## Built With
+## Built with
 
 We use gradle to build the project. As in this project the gradle wrapper is used you just need to download
 the repository and run 
