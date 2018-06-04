@@ -14,11 +14,7 @@ class JiraRequestHandler {
 
     def getIssuesByJQL(connection) {
         Object json = jsonRestHandler.get(connection)
-        def issues = null;
-        json.issues.each {
-            issues = it.key
-        }
-        return issues
+        return json.issues.key.first()
     }
 
     def makeTransitionByIssueId(connection, transitionId) {
