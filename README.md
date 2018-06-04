@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/erikauer/jira-issue-transitioner/blob/master/LICENSE.md)
 [![Build Status](https://travis-ci.org/erikauer/jira-issue-transitioner.svg?branch=master)](https://travis-ci.org/erikauer/jira-issue-transitioner)
-[![Coverage Status](https://coveralls.io/repos/github/erikauer/jira-issue-transitioner/badge.svg?branch=master)](https://coveralls.io/github/erikauer/jira-issue-transitioner?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/erikauer/jira-issue-transitioner/badge.svg?branch=master&service=github)](https://coveralls.io/github/erikauer/jira-issue-transitioner?branch=master)
 
 # JIRA Issue Transitioner 
 
@@ -37,9 +37,9 @@ To deploy the JIRA Issue Transitioner successful you need to set the JIRA URL th
      export JIRAISSUETRANSITIONER_TRANSITION=22
      
 You can set JIRAISSUETRANSITIONER_DRYRUN to true, if you want to test a transition. This configuration is
-convenient if you want to initial configure the issuetransitioner in your environment.
+convenient if you want to initially configure the issue transitioner for your environment.
 
-## Built With
+## Built with
 
 We use gradle to build the project. As in this project the gradle wrapper is used you just need to download
 the repository and run 
